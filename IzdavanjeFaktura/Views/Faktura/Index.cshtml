@@ -1,0 +1,83 @@
+﻿@model IEnumerable<IzdavanjeFaktura.ViewModels.FakturaVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create","Faktura", htmlAttributes: new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojFakture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumFakture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumPlacanjaFakture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UkupnaCijenaBezPoreza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UkupnaCijenaSaPorezom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NazivPrimatelja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Porez)
+        </th> 
+        <th>
+            @Html.DisplayNameFor(model => model.Placeno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrojFakture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumFakture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumPlacanjaFakture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UkupnaCijenaBezPoreza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UkupnaCijenaSaPorezom)
+        </td>
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.NazivPrimatelja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Porez)
+        </td>
+        
+        <td>
+            @if (item.Placeno)
+            {
+                <span>Uplaceno</span>
+            }
+            else
+            {
+                <span>Nije placeno</span>
+
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", "Faktura", new { id = item.FakturaID }, htmlAttributes: new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+
+</table>

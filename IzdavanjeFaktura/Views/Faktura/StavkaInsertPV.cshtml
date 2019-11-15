@@ -1,0 +1,14 @@
+﻿@model IzdavanjeFaktura.ViewModels.StavkaVM
+
+@if (Model != null)
+{
+    <tr>
+
+        @Html.HiddenFor(model => model.StavkaID)
+        <td scope="row">  @Html.EditorFor(model => model.Naziv, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) </td>
+        <td>  @Html.EditorFor(model => model.Opis, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) </td>
+        <td>  @Html.EditorFor(model => model.Cijena, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })</td>
+        <td>  @Html.EditorFor(model => model.Kolicina, new { htmlAttributes = new { @class = "form-control", @min = 1 } }) </td>
+    </tr>
+}
+

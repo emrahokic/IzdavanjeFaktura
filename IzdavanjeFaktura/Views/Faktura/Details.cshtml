@@ -1,0 +1,124 @@
+﻿@model IzdavanjeFaktura.ViewModels.FakturaVM
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<h1>Stvaratelj fakture: @Model.StvarateljRacuna</h1>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojFakture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumFakture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumPlacanjaFakture)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.NazivPrimatelja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Porez)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UkupnaCijenaBezPoreza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UkupnaCijenaSaPorezom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placeno)
+        </th>
+    </tr>
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.BrojFakture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.DatumFakture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.DatumPlacanjaFakture)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => Model.NazivPrimatelja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Porez)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.UkupnaCijenaBezPoreza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.UkupnaCijenaSaPorezom)
+        </td>
+        <td>
+            @if (Model.Placeno)
+            {
+                <span>Uplaceno</span>
+            }
+            else
+            {
+                <span>Nije placeno</span>
+
+            }
+        </td>
+
+    </tr>
+
+</table>
+<h2>Stavke Fakture</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Stavke[0].Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stavke[0].Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stavke[0].JedinicnaCijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stavke[0].Kolicina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stavke[0].Cijena)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model.Stavke)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JedinicnaCijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kolicina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+
+
+        </tr>
+    }
+
+</table>

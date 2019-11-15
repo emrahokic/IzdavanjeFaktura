@@ -1,0 +1,160 @@
+﻿@model IzdavanjeFaktura.ViewModels.FakturaFormaVM
+
+@{
+    ViewBag.Title = "Create";
+}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<h2>Create</h2>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+
+            @using (Html.BeginForm("Create", "Faktura", FormMethod.Post, htmlAttributes: new { @id = "FormaStavka" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <h4>Stavke</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StavkaID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(model => model.StavkaID, new SelectList(Model.Stavke, "Value", "Text", 1), new { @class = "form-control Target" })
+                        @Html.ValidationMessageFor(model => model.StavkaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <table class="table col-md-7">
+                        <tr>
+                            <th scope="col">Naziv</th>
+                            <th>Opis</th>
+                            <th>Jedinicna Cijena</th>
+                            <th>Kolicina</th>
+                        </tr>
+                        <tbody id="rootStavka">
+                        </tbody>
+                    </table>
+                </div>
+
+
+            }
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input id="DodajNaFakturu" value="Dodaj na fakturu" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            @using (Html.BeginForm("Create", "Faktura", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+
+                <h4>Faktura</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BrojFakture, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.BrojFakture, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BrojFakture, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DatumFakture, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.DatumFakture, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DatumFakture, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DatumPlacanjaFakture, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.DatumPlacanjaFakture, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DatumPlacanjaFakture, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NazivPrimatelja, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.NazivPrimatelja, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NazivPrimatelja, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Placeno, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.CheckBoxFor(model => model.Placeno, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Placeno, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PDVID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.PDVID, new SelectList(Model.PDV, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PorezID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <table class="col-md-12 table">
+                        <tr>
+                            <th>Stavka</th>
+                            <th>Cijena</th>
+                            <th>Kolicina</th>
+                        </tr>
+                        <tbody id="rootFakturaStavka"></tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script>
+    $(".Target").change(function () {
+        var end = this.value;
+        $.get("/Faktura/GetStavka?id=" + end,
+            function (rezultat, status) {
+                $('#rootStavka').html(rezultat);
+            });
+    });
+    var i = 0;
+    $("#DodajNaFakturu").click(function () {
+        var end = $("#FormaStavka").serialize();
+        $.ajax({
+            type: "POST",
+            url: "/Faktura/SetStavka?i=" + i++,
+            data: end,
+            success: function (data) {
+                $("#rootFakturaStavka").append(data);
+            }
+        });
+        //$.get("/Faktura/GetStavka?id=" + end,
+        //    function (rezultat, status) {
+        //        $('#rootStavka').html(rezultat);
+        //    });
+    });
+</script>

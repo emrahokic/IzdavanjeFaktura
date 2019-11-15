@@ -1,0 +1,8 @@
+﻿@model IzdavanjeFaktura.ViewModels.FakturaFormaVM
+<tr>
+
+    @Html.HiddenFor(model => model.SelektovaneStavke[Model.i].StavkaID)
+    <td scope="row">  @Html.EditorFor(model => model.SelektovaneStavke[Model.i].Naziv, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) </td>
+    <td>  @Html.EditorFor(model => model.SelektovaneStavke[Model.i].Cijena, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })</td>
+    <td>  @Html.EditorFor(model => model.SelektovaneStavke[Model.i].Kolicina, new { htmlAttributes = new { @class = "form-control", @min = 1 } }) </td>
+</tr>

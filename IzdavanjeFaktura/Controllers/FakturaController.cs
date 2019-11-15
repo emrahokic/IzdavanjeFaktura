@@ -63,7 +63,7 @@ namespace IzdavanjeFaktura.Controllers
                 Selected = true,
                 Disabled = true
             });
-
+            /////////
             createModel.DatumFakture = DateTime.Now;
             createModel.BrojFakture = "BR: "+DateTime.Now.Ticks + "/" + DateTime.Now.Year;
             return View(createModel);

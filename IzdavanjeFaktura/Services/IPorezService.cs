@@ -1,4 +1,5 @@
-﻿using IzdavanjeFaktura.Models;
+﻿using IzdavanjeFaktura.Models.Models;
+using IzdavanjeFaktura.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace IzdavanjeFaktura.Services
 {
     public interface IPorezService
     {
-        List<Porez>GetAll();
+        IEnumerable<Porez>GetAll();
         Porez GetById(int id);
     }
 }

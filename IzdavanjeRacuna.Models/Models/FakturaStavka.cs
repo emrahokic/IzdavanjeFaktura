@@ -1,4 +1,4 @@
-﻿namespace IzdavanjeFaktura.Models
+﻿namespace IzdavanjeFaktura.Models.Models
 {
     public class FakturaStavka
     {

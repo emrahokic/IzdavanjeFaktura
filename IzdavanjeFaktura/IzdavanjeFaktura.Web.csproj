@@ -246,13 +246,6 @@
       <DependentUpon>201911151422124_DodavanjeAtrrIEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Faktura.cs" />
-    <Compile Include="Models\FakturaStavka.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Porez.cs" />
-    <Compile Include="Models\Stavka.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FakturaService.cs" />
     <Compile Include="Services\IFakturaService.cs" />
@@ -359,6 +352,16 @@
     <EmbeddedResource Include="Migrations\201911151422124_DodavanjeAtrrIEdit.resx">
       <DependentUpon>201911151422124_DodavanjeAtrrIEdit.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IzdavanjeRacuna.Models\IzdavanjeRacuna.Models.csproj">
+      <Project>{8B272461-F5FC-4CDA-A025-101578AEDD9A}</Project>
+      <Name>IzdavanjeRacuna.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Racun.Repository\IzdavanjeFaktura.Repository.csproj">
+      <Project>{ac324dab-01eb-4f81-bfa3-1bef4fe680cf}</Project>
+      <Name>IzdavanjeFaktura.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

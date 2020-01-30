@@ -1,4 +1,4 @@
-﻿using IzdavanjeFaktura.Models;
+﻿using IzdavanjeFaktura.Repository;
 using IzdavanjeFaktura.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.ComponentModel.Composition;
 using IzdavanjeFaktura.MEF;
 using System.ComponentModel.Composition.Hosting;
+using IzdavanjeFaktura.Models.Models;
 
 namespace IzdavanjeFaktura.Services
 {

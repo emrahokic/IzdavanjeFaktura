@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using IzdavanjeFaktura.Models;
+using IzdavanjeFaktura.Models.Models;
+using IzdavanjeFaktura.Repository;
 using IzdavanjeFaktura.ViewModels;
 
 namespace IzdavanjeFaktura.Services

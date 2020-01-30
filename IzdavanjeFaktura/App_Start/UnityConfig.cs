@@ -1,5 +1,6 @@
 using IzdavanjeFaktura.Controllers;
-using IzdavanjeFaktura.Models;
+using IzdavanjeFaktura.Models.Models;
+using IzdavanjeFaktura.Repository;
 using IzdavanjeFaktura.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -22,7 +23,7 @@ namespace IzdavanjeFaktura
             container.RegisterType<IFakturaService, FakturaService>();
             container.RegisterType<IPorezService, PorezService>();
             container.RegisterType<IStavkaService, StavkaService>();
-
+            container.RegisterType(typeof(IRepository<>),typeof(Repository<>));
             //Identity
             container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
             container.RegisterType<UserManager<ApplicationUser>>();

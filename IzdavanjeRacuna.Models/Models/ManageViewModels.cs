@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace IzdavanjeFaktura.Models
+namespace IzdavanjeFaktura.Models.Models
 {
     public class IndexViewModel
     {

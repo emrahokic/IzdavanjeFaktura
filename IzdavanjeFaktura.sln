@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzdavanjeFaktura.Web", "Izd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzdavanjeFaktura.Tests", "IzdavanjeFaktura.Tests\IzdavanjeFaktura.Tests.csproj", "{739627E1-363E-40B1-8B01-1DA3DA2C0CF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzdavanjeFaktura.Repository", "Racun.Repository\IzdavanjeFaktura.Repository.csproj", "{AC324DAB-01EB-4F81-BFA3-1BEF4FE680CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzdavanjeRacuna.Models", "IzdavanjeRacuna.Models\IzdavanjeRacuna.Models.csproj", "{8B272461-F5FC-4CDA-A025-101578AEDD9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{739627E1-363E-40B1-8B01-1DA3DA2C0CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{739627E1-363E-40B1-8B01-1DA3DA2C0CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{739627E1-363E-40B1-8B01-1DA3DA2C0CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC324DAB-01EB-4F81-BFA3-1BEF4FE680CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC324DAB-01EB-4F81-BFA3-1BEF4FE680CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC324DAB-01EB-4F81-BFA3-1BEF4FE680CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC324DAB-01EB-4F81-BFA3-1BEF4FE680CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B272461-F5FC-4CDA-A025-101578AEDD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B272461-F5FC-4CDA-A025-101578AEDD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B272461-F5FC-4CDA-A025-101578AEDD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B272461-F5FC-4CDA-A025-101578AEDD9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

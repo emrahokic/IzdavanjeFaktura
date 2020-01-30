@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace IzdavanjeFaktura.Models
+namespace IzdavanjeFaktura.Models.Models
 {
     public class Stavka
     {

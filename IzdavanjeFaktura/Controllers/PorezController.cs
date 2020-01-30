@@ -6,18 +6,27 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using IzdavanjeFaktura.Models;
+using IzdavanjeFaktura.Models.Models;
+using IzdavanjeFaktura.Repository;
+using IzdavanjeFaktura.Services;
 
 namespace IzdavanjeFaktura.Controllers
 {
     public class PorezController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly IPorezService _porezService;
 
+        public PorezController(IPorezService porezService)
+        {
+            _porezService = porezService;
+        }
         // GET: Porez
         public ActionResult Index()
         {
-            return View(db.Porez.ToList());
+
+            var x = _porezService.GetAll();
+            return View(x);
         }
 
         // GET: Porez/Details/5

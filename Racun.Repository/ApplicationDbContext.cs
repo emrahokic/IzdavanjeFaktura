@@ -1,23 +1,14 @@
-﻿using System.Data.Entity;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
+﻿using IzdavanjeFaktura.Models.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace IzdavanjeFaktura.Models
+namespace IzdavanjeFaktura.Repository
 {
-    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
-    {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
-        {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
-            return userIdentity;
-        }
-    }
-
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -40,20 +31,20 @@ namespace IzdavanjeFaktura.Models
         {
             protected override void Seed(ApplicationDbContext context)
             {
-                context.Stavka.Add(new Models.Stavka()
+                context.Stavka.Add(new Models.Models.Stavka()
                 {
                     StavkaID = 1,
                     Cijena = 999,
                     Naziv = "Intel I7 Procesor",
                     Opis = "Procesor nove generacije"
                 });
-                context.Porez.Add(new Models.Porez()
+                context.Porez.Add(new Models.Models.Porez()
                 {
                     PorezID = 1,
                     Naziv = "BiH PDV 17%",
                     Iznos = 17
                 });
-                context.Porez.Add(new Models.Porez()
+                context.Porez.Add(new Models.Models.Porez()
                 {
                     PorezID = 2,
 

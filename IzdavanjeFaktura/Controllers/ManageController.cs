@@ -6,7 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using IzdavanjeFaktura.Models;
+using IzdavanjeFaktura.Repository;
+using IzdavanjeFaktura.Models.Models;
 
 namespace IzdavanjeFaktura.Controllers
 {

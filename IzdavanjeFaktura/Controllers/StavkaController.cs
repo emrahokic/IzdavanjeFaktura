@@ -1,4 +1,4 @@
-﻿using IzdavanjeFaktura.Models;
+﻿using IzdavanjeFaktura.Repository;
 using IzdavanjeFaktura.Services;
 using IzdavanjeFaktura.ViewModels;
 using System;

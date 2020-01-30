@@ -1,4 +1,4 @@
-﻿using IzdavanjeFaktura.Models;
+﻿using IzdavanjeFaktura.Repository;
 using IzdavanjeFaktura.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using System.Web.Mvc;
 using System.Data.Entity;
 using IzdavanjeFaktura.Services;
+using IzdavanjeFaktura.Models.Models;
 
 namespace IzdavanjeFaktura.Controllers
 {

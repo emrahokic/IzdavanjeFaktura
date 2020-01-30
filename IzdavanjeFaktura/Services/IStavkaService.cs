@@ -1,4 +1,5 @@
-﻿using IzdavanjeFaktura.Models;
+﻿using IzdavanjeFaktura.Models.Models;
+using IzdavanjeFaktura.Repository;
 using IzdavanjeFaktura.ViewModels;
 using System;
 using System.Collections.Generic;
